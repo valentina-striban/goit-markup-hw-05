@@ -609,12 +609,15 @@ color: #f4f4fd;
 
 .footer-subscribe-form {
     display: flex;
+    gap: 24px;
 }
 
 .footer-subscribe-text {
     color: #fff;
     font-weight: 500;
     margin-bottom: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
 }
 
 .footer-subscribe-label {
@@ -623,19 +626,21 @@ color: #f4f4fd;
 
 .footer-subscribe-input {
     border: 1px solid #fff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     width: 264px;
     height: 40px;
     background-color: transparent;
     margin-right: 24px;
     padding-left: 16px;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: #ffffff;
 }
 
 .footer-subscribe-input::placeholder {
-font-size: 12px;
-line-height: 2;
-letter-spacing: 0.04em;
-color: #fff;
+    color: #ffffff;
 }
 
 .footer-subscribe-button {
@@ -691,10 +696,11 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
     height: 100%;
     top: 0;
-    background-color: rgba(46, 47, 66, 0.7);
+    background-color: rgba(46, 47, 66, 0.4);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-open {
@@ -712,15 +718,50 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 24px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 72px 24px 24px 24px;
 }
 
 .modal-close {
     position: absolute;
     right: 24px;
     top: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7e9fc;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.modal-close:hover {
+    background-color: #404bbf;
+    border: none;
+}
+
+.modal-close:focus {
+    background-color: #404bbf;
+    border: none;
+}
+
+.modal-button {
+    fill: #2e2f42;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button:hover {
+fill: #ffffff;
+}
+
+.modal-button:focus {
+fill: #ffffff;
+}
+
 
 .title-bac {
     font-family: "Roboto", sans-serif;
@@ -730,7 +771,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     letter-spacing: 0.02em;
     text-align: center;
     color: #2e2f42;
-    padding-top: 48px;
+    /* padding-top: 48px; */
 }
 
 .modal-title {
@@ -745,15 +786,14 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(46, 47, 66, 0.4);
     background-color: transparent;
     border-radius: 4px;
-    margin-bottom: 8px;
-    padding-left: 38px;
+        padding-left: 38px;
     outline: transparent;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-input:focus {
-    border: 1px solid #4d5ae5;
-
+    border-color: #4D5AE5;
+    /* border: 1px solid #4d5ae5; */
 }
 
 .modal-input:focus + .modal-icon{
@@ -767,12 +807,9 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .modal-label {
     font-size: 12px;
-    line-height: 1.16;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
-}
-
-.modal-label span {
     display: block;
     margin-bottom: 4px;
 }
@@ -798,6 +835,10 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     resize: none;
 }
 
+.modal-text:focus {
+    border-color: #4D5AE5;
+}
+
 .modal-field {
     margin-top: 16px;
     margin-bottom: 24px;
@@ -808,11 +849,14 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .check-text {
 font-size: 12px;
-line-height: 1.16;
+line-height: 1.17;
 letter-spacing: 0.04em;
 color: #8e8f99;
 display: flex;
 align-items: center;
+}
+
+.check-text-span {
 }
 
 .check-text span {
@@ -821,10 +865,11 @@ align-items: center;
     border-radius: 2px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     margin-right: 8px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     fill: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .check-link {
@@ -847,19 +892,19 @@ justify-content: center;
 }
 
 .button-submit {
+    display: block;
+    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.04em;
-    text-align: center;
     color: #fff;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-    background: #4d5ae5;
+    background-color: #4d5ae5;
+    cursor: pointer;
     min-width: 169px;
     height: 56px;
-    border-radius: 4px;
+    border: none;
     margin: 0 auto;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
-  
-}
